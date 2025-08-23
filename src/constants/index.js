@@ -135,18 +135,21 @@ export const myEducation = [
     name: "Undergraduate Thesis",
     link: "https://drive.google.com/file/d/1xS_zfmxrQdRDjUyNXiiZcATYOm4rrGVC/view?usp=drive_link",
   },
+  image: "/images/cuet.png"
 },
   {
     degree: "Higher Secondary Certificate (HSC), Science",
     institution: "Government Hazi Muhammad Mohsin College, Chattogram",
     period: "2017 – 2019",
     description: "GPA: 4.83 / 5.00",
+    image: "/images/mohsin.png"
   },
   {
     degree: "Secondary School Certificate (SSC), Science",
     institution: "Government Muslim High School, Chattogram",
     period: "2013 – 2017",
     description: "GPA: 5.00 / 5.00",
+    image: "/images/muslim.png"
   },
 ];
 

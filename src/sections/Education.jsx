@@ -2,26 +2,38 @@
 
 import React from "react";
 import { myEducation } from "../constants";
-import { AnimatedList, EducationCard } from "../components/Animated"; 
+import { CometCard } from "../ui/comet-card";
 
 export function Education() {
   return (
-    <div className="flex flex-col gap-4 p-11 w-full max-w-[1000px] mx-auto">
+    <section
+      id="education"
+      className="relative flex flex-col gap-4 p-11 w-full max-w-[1000px] mx-auto"
+    >
       {/* 🔹 Section Heading */}
-      <h2 className="mb-5 ml- -10 mt-20 text-center text-4xl font-bold text-white">
-        Educations
+      <h2 className="mb-10 mt-20 text-center text-4xl font-bold text-white">
+        Education
       </h2>
 
-      {/* 🔹 Animated Education List */}
-      <AnimatedList>
+      {/* 🔹 Education Cards Grid */}
+      <div className="mb-2 ml- [-25] grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-[150px] auto-rows-fr justify-items-center">
         {myEducation.map((item, idx) => (
-          <EducationCard key={idx} {...item} />
-        ))}
-      </AnimatedList>
+             <CometCard
+                 key={idx}
+                 title={item.degree}
+                 institution={item.institution}
+                 subtitle={item.period}
+                 description={item.description}
+                 image={item.image}
+                 thesis={item.thesis}  
+                />
 
-      {/* 🔹 Gradient Overlay */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-gray-900"></div>
-    </div>
+        ))}
+      </div>
+
+      {/* 🔹 Gradient Overlay (optional, if you want fade effect) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-neutral-to-t from-gray-900"></div>
+    </section>
   );
 }
 

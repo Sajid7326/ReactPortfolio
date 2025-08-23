@@ -14,8 +14,8 @@ export function Publications() {
 
       {/* Foreground content */}
       <div className="relative z-10">
-        <h2 className="mb-8 ml-8 text-center text-4xl font-bold text-white">
-          My Publications
+        <h2 className="mb-8 ml- -1 text-center text-4xl font-bold text-white">
+          Publications
         </h2>
         <div className="flex flex-col gap-5 z-10">
           {myPublications.map((pub, idx) => (

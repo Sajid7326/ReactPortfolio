@@ -24,7 +24,7 @@ export default function Timeline({ data }) {
 
   return (
     <div className="c-space section-spacing" ref={containerRef}>
-      <h2 className="text-center text-heading">My Work Experience</h2>
+      <h2 className="text-center text-heading">Work Experience</h2>
       <div ref={ref} className="relative pb-20">
         {data?.map((item, index) => (
           <div

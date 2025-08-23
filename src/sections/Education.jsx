@@ -8,8 +8,8 @@ export function Education() {
   return (
     <div className="flex flex-col gap-4 p-11 w-full max-w-[1000px] mx-auto">
       {/* 🔹 Section Heading */}
-      <h2 className="mb-10 ml-10 mt-20 text-center text-4xl font-bold text-white">
-        My Education
+      <h2 className="mb-5 ml- -10 mt-20 text-center text-4xl font-bold text-white">
+        Educations
       </h2>
 
       {/* 🔹 Animated Education List */}

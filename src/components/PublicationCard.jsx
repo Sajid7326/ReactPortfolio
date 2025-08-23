@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
+import { BackgroundBeams } from "./background-beams"; // ✅ match file name
 
 // Utility for merging Tailwind classes
 function cn(...classes) {
@@ -23,8 +24,8 @@ const PublicationCardMobile = ({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      className={twMerge(
-        "mx-auto rounded-xl bg-gray-800 shadow-lg transition hover:scale-[102%] hover:shadow-xl block md:hidden",
+      className={cn(
+        "relative mx-auto rounded-xl bg-gray-800 shadow-lg transition hover:scale-[102%] hover:shadow-xl block md:hidden",
         mobileWidth,
         mobileSpace
       )}
@@ -66,8 +67,8 @@ const PublicationCardDesktop = ({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
-      className={twMerge(
-        "mx-auto rounded-xl bg-gray-800 shadow-lg transition hover:scale-[102%] hover:shadow-xl hidden md:block",
+      className={cn(
+        "relative mx-auto rounded-xl bg-gray-800 shadow-lg transition hover:scale-[102%] hover:shadow-xl hidden md:block",
         desktopWidth,
         desktopSpace
       )}
@@ -92,7 +93,7 @@ const PublicationCardDesktop = ({
   );
 };
 
-// 🔥 Unified Responsive Component
+// 🔥 Unified Responsive Component with Background Beams built-in
 export const ResponsivePublicationCard = ({
   mobileWidth = "w-full max-w-[350px] p-3",
   desktopWidth = "w-full max-w-[900px] p-5",
@@ -113,7 +114,12 @@ export const ResponsivePublicationCard = ({
   ...props
 }) => {
   return (
-    <>
+    <section className="relative w-full">
+      {/* Background always behind */}
+      <div className="absolute inset-0 -z-10">
+        <BackgroundBeams />
+      </div>
+
       <PublicationCardMobile
         {...props}
         mobileWidth={mobileWidth}
@@ -126,12 +132,12 @@ export const ResponsivePublicationCard = ({
         desktopFont={desktopFont}
         desktopSpace={desktopSpace}
       />
-    </>
+    </section>
   );
 };
 
 // ✅ Alias exports
-export { 
-  ResponsivePublicationCard as PublicationCard, 
-  ResponsivePublicationCard as PublicationCardResponsive 
+export {
+  ResponsivePublicationCard as PublicationCard,
+  ResponsivePublicationCard as PublicationCardResponsive,
 };

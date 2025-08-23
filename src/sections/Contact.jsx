@@ -44,7 +44,7 @@ const Contact = () => {
           to_email: "sajidgmhs73@gmail.com",
           message: formData.message,
         },
-        "pn-Bw_mS1_QQdofuV"
+        "gnQe11P3ENuAVw70v"
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
@@ -68,11 +68,11 @@ const Contact = () => {
       {showAlert && <Alert type={alertType} text={alertMessage} />}
 
       {/* Contact Card with ShineBorder */}
-      <div className="relative flex flex-col items-center justify-center max-w-[350px] p-3 mx-auto border border-white/10 rounded-2xl bg-primary overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center max-w-[350px] p-4 mt-60 mx-auto border border-white/10 rounded-2xl bg-primary overflow-hidden">
         <ShineBorder
           shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         />
-        <div className="flex flex-col items-start w-full gap-5 mb-10 relative z-10">
+        <div className="flex flex-col items-start w-full gap-5 mb-2 relative z-10">
           <h2 className="text-heading">Let's Talk</h2>
           <p className="font-normal text-neutral-400">
             Whether you're seeking innovative urban planning solutions, 

@@ -75,7 +75,7 @@ const About = () => {
         </div>
         {/* Grid 5 */}
         <div className="grid-default-color grid-5">
-          <div className="z-5 w-[80%]">
+          <div className="z-5 w-[70%]">
                          <p className="headText"><b>Toolkit</b></p>
             <p className="subtext" style={{ textAlign: "justify" }}>
               Expertise in GIS and urban planning tools with advanced analytical models such as the Shannon Diversity Index, Principal Component Analysis (PCA), Artificial Neural Networks (ANN), and Binary Logistic Regression.

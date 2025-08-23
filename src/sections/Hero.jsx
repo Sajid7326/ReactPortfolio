@@ -1,23 +1,17 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import HeroText from "../components/HeroText";
-import ParallaxBackground from "../sections/ParallaxBackground";
-import RainParticles from "../components/RainParticles";
 import { Float, Loader } from "@react-three/drei";
 import { Suspense } from "react";
 import { easing } from "maath";
 
-
 const Hero = () => {
   return (
-    <section className="flex items-start justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space relative">
-      {/* Content */}
-      <HeroText />
-
-      {/* 3D Canvas */}
-      <figure className="absolute inset-0 w-full h-full">
+    <section className="relative flex items-center justify-center min-h-screen overflow-hidden c-space">
+      {/* 3D Background Canvas */}
+      <figure className="absolute inset-0 w-full h-full -z-10">
         <Canvas
           camera={{ position: [0, 0, 5], fov: 50 }}
-          style={{ background: "transparent" }}
+          className="w-full h-full"
         >
           <Suspense fallback={null}>
             <Float>
@@ -28,6 +22,11 @@ const Hero = () => {
           <Rig />
         </Canvas>
       </figure>
+
+      {/* Foreground Content */}
+      <div className="relative z-10">
+        <HeroText />
+      </div>
 
       {/* Loader UI */}
       <Loader />

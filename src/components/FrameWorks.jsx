@@ -23,12 +23,12 @@ export function Frameworks() {
   ];
   return (
     <div className="relative flex h-[15rem] w-full flex-col items-center justify-center">
-      <OrbitingCircles iconSize={30} radius={120}>
+      <OrbitingCircles iconSize={20} radius={80}>
         {skills.map((skill, index) => (
           <Icon key={index} src={`assets/logos/${skill}.svg`} />
         ))}
       </OrbitingCircles>
-      <OrbitingCircles iconSize={25} radius={80} reverse speed={2}>
+      <OrbitingCircles iconSize={15} radius={40} reverse speed={2}>
         {skills.reverse().map((skill, index) => (
           <Icon key={index} src={`assets/logos/${skill}.svg`} />
         ))}

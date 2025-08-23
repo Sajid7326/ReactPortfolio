@@ -68,7 +68,7 @@ const Contact = () => {
       {showAlert && <Alert type={alertType} text={alertMessage} />}
 
       {/* Contact Card with ShineBorder */}
-      <div className="relative flex flex-col items-center justify-center max-w-md p-5 mx-auto border border-white/10 rounded-2xl bg-primary overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center max-w-[350px] p-3 mx-auto border border-white/10 rounded-2xl bg-primary overflow-hidden">
         <ShineBorder
           shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
         />

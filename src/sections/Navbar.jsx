@@ -61,7 +61,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-2 sm:py-0 z-50">
           <a
             href="#"
-            className="ml-10 text-2xl font-bold transition-colors text-neutral-400 hover:text-white"
+            className="ml-6 text-2xl font-bold transition-colors text-neutral-400 hover:text-white"
           >
             Syed Shoabul Islam
           </a>

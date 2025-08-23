@@ -164,4 +164,8 @@ body {
   animation-fill-mode: forwards;
 }
 
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
 

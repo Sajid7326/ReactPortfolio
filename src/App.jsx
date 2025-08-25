@@ -6,6 +6,7 @@ import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Experiences from "./sections/Experiences";
 import Education from "./sections/Education";
+import { ArcTimeline } from "./components/arc-timeline";
 import { Publications } from "./sections/Publications";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";

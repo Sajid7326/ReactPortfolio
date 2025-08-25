@@ -123,8 +123,6 @@ export const myExperience = [
   },
 ];
 
-
-
 export const myEducation = [
   {
   degree: "Bachelor of Urban and Regional Planning (BURP)",
@@ -173,8 +171,6 @@ export const myPublications = [
     link: "https://www.researchgate.net/publication/391425752_Geospatial_Multicriteria_Analysis_for_Earthquake_Hazard_Assessment_A_Case_Study_of_Bangladesh", // Replace with actual PDF URL
   },
 ];
-
-
 
 export const mySocials = [
   {

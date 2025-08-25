@@ -64,27 +64,6 @@ const About = () => {
         </div>
 
 
-        {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start a project together?
-            </p>
-            <CopyEmailButton />
-          </div>
-        </div>
-        {/* Grid 5 */}
-        <div className="grid-default-color grid-5 justify-between gap-4">
-          <div className="z-1 w-[55%]">
-                         <p className="headText"><b>Toolkit</b></p>
-            <p className="subtext" >
-              Expertise in GIS and urban planning tools with advanced analytical models such as the Shannon Diversity Index, Principal Component Analysis (PCA), Artificial Neural Networks (ANN), and Binary Logistic Regression.
-            </p>
-          </div>
-          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
-            <Frameworks/>
-          </div>
-        </div>
       </div>
     </section>
   );

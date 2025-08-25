@@ -22,15 +22,15 @@ export function Frameworks() {
     "gee",
   ];
 
-  const [outerRadius, setOuterRadius] = useState(80);
-  const [innerRadius, setInnerRadius] = useState(55);
+  const [outerRadius, setOuterRadius] = useState(100);
+  const [innerRadius, setInnerRadius] = useState(65);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
         // mobile
         setOuterRadius(55);
-        setInnerRadius(40);
+        setInnerRadius(30);
       } else if (window.innerWidth < 1024) {
         // tablet
         setOuterRadius(70);
@@ -57,7 +57,7 @@ export function Frameworks() {
       </OrbitingCircles>
 
       {/* Inner Orbit */}
-      <OrbitingCircles iconSize={10} radius={innerRadius} reverse speed={2}>
+      <OrbitingCircles iconSize={8} radius={innerRadius} reverse speed={2}>
         {skills
           .slice() // avoid mutating original array
           .reverse()

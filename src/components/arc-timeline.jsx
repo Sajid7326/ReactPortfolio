@@ -3,7 +3,6 @@ import React from "react";
 import { RocketIcon, CubeIcon, GlobeIcon, StarIcon } from "@radix-ui/react-icons";
 import { myEducation } from "../constants";
 
-
 // Transform myEducation into ArcTimelineItem[]
 export const EDUCATION_TIMELINE = myEducation.map((item) => {
   const steps = [
@@ -17,7 +16,7 @@ export const EDUCATION_TIMELINE = myEducation.map((item) => {
       icon: <GlobeIcon width={20} height={20} />,
       content: (
         <a href={item.thesis.link} target="_blank" rel="noopener noreferrer">
-          <button className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+          <button className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition text-2xl">
             View Undergraduate Thesis
           </button>
         </a>
@@ -28,15 +27,15 @@ export const EDUCATION_TIMELINE = myEducation.map((item) => {
   return { time: item.period, steps };
 });
 
-export function ArcTimeline({ data, defaultActiveStep, arcConfig }) {
+export function ArcTimeline({ data }) {
   return (
-    <div className="relative flex flex-col gap-8 p-6">
+    <div className="relative flex flex-col gap-8 p-6 text-2xl text-white">
       {data.map((item, idx) => (
         <div key={idx}>
-          <h3 className="font-bold text-white mb-2">{item.time}</h3>
-          <div className="flex flex-col gap-2 ml-7">
+          <h3 className="font-bold mb-2">{item.time}</h3>
+          <div className="flex flex-col gap-5 ml-9">
             {item.steps.map((step, sidx) => (
-              <div key={sidx} className="flex items-center gap-2 text-white">
+              <div key={sidx} className="flex items-center gap-5">
                 {step.icon} <span>{step.content}</span>
               </div>
             ))}
@@ -47,24 +46,17 @@ export function ArcTimeline({ data, defaultActiveStep, arcConfig }) {
   );
 }
 
-
 export default function EducationArcTimeline() {
   return (
-    <section id="education-arc" className="relative flex flex-col gap-12 p-11 w-full max-w-[1000px] mx-auto">
-      <h2 className="mb-10 mt-20 text-center text-4xl font-bold text-white">
+    <section
+      id="education-arc"
+      className="relative flex flex-col gap-12 p-11 w-full max-w-[1000px] mx-auto"
+    >
+      <h2 className="mb-10 mt-20 text-center font-bold text-2xl text-white">
         Education Timeline
       </h2>
 
-      <ArcTimeline
-        data={EDUCATION_TIMELINE}
-        defaultActiveStep={{ time: "2020 – 2025", stepIndex: 0 }}
-        arcConfig={{
-          circleWidth: 3500,
-          angleBetweenMinorSteps: 0.5,
-          lineCountFillBetweenSteps: 6,
-          boundaryPlaceholderLinesCount: 40,
-        }}
-      />
+      <ArcTimeline data={EDUCATION_TIMELINE} />
     </section>
   );
 }

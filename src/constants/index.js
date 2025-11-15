@@ -79,6 +79,22 @@ export const myProjects = [
 ];
 
 export const myExperience = [
+ {
+  title: "GIS Analyst",
+  job: "Institute of Water Modelling (IWM)",
+  date: "Nov 2025 – Present",
+  
+  content: [
+    "Project Name: Consultancy Services for Procurement of Mouza Map Digitization and Geodatabase Creation, Dhaka Division (Package-05) (P-52547)",
+    "Supporting the Team Leader in executing GIS-related tasks under project requirements.",
+    "Conducting quality checks on digitized GIS mouza maps to ensure accuracy and consistency.",
+    "Preparing and structuring GIS databases according to specified project formats.",
+    "Georeferencing and performing edge-matching of digitized mouza map sheets.",
+    "Coordinating with project team members and clients for smooth workflow and deliverables.",
+    "Participating in field visits for ground-truthing and validation of digitized mouza data.",
+  ],
+},
+
   {
     title: "Intern",
     job: "Urban Development Directorate (UDD), Ministry of Housing and Public Works",
@@ -106,8 +122,8 @@ export const myExperience = [
     date: "Oct 2023 – Apr 2024",
     content: [
       "Project Title: 'Disaster Resilience and Equitable Tomorrow’s Cities in Bangladesh'.",
-      "Conducted spatial data analysis and field assessments.",
-      "Prepared stakeholder engagement materials for resilience planning in Chattogram and Cox’s Bazar.",
+      "Conducted spatial data analysis, Upazilla Map Digitization and Participatory Rural Apprisal",
+      "Engaged with stakeholders for bottom-up resilience planning in Chattogram and Cox’s Bazar.",
     ],
   },
 

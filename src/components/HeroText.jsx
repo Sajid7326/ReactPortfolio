@@ -3,12 +3,11 @@ import { motion } from "motion/react";
 
 const HeroText = () => {
   const words = [
-    "Urban Planning & Site Design",
-    "Geospatial Analysis",
-    "Disaster Risk Assessment",
-    "Project Planning & Management",
-    "Remote Sensing & GIS",
-    "Landscape Architecture",
+    "Advanced Geospatial Analytics",
+    "Disaster Risk & Hazard Modeling",
+    "Urban Planning & Project Management",
+    "Remote Sensing & Image Classification",
+    "Landscape & Site Development Planning",
   ];
 
   const variants = {
@@ -38,7 +37,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            Graduate Urban Planner
+            GIS Analyst
           </motion.p>
 
           <motion.p
@@ -59,7 +58,7 @@ const HeroText = () => {
           >
             <FlipWords
               words={words}
-              className="font-black text-white text-4xl md:text-5xl"
+              className="font-black text-white text-3xl md:text-3xl"
             />
           </motion.div>
         </div>

@@ -1,26 +1,31 @@
 import React from "react";
-import { NavbarDemo } from "./sections/NewNavbar";
-import Hero from "./sections/Hero";
-import ParallaxBackground from "./sections/ParallaxBackground";
-import About from "./sections/About";
-import Projects from "./sections/Projects";
-import Experiences from "./sections/Experiences";
-import Education from "./sections/Education";
-import { ArcTimeline } from "./components/arc-timeline";
-import { Publications } from "./sections/Publications";
-import Contact from "./sections/Contact";
-import Footer from "./sections/Footer";
-import NewNavbar from "./sections/NewNavbar";
+
+// Hero Layer Components
+import ParallaxBackground from "./pages/ParallaxBackground";
+import Hero from "./pages/Hero";   // FIXED HERE
+import { motion } from "motion/react";
+
+// Sections
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Experiences from "./pages/Experiences";
+import Education from "./pages/Education";
+import { Publications } from "./pages/Publications";
+import { Training } from "./pages/Training";
+import Contact from "./pages/Contact";
+import Footer from "./pages/Footer";
+import NewNavbar from "./pages/NewNavbar";
 
 const App = () => {
   return (
     <div className="w-screen overflow-x-hidden">
-      {/* Background with Navbar + Hero */}
-      <ParallaxBackground navbar={<NewNavbar />}>
+      
+      {/* HERO SECTION */}
+      <ParallaxBackground navbar={<NewNavbar />} bg3D={null}>
         <Hero />
       </ParallaxBackground>
 
-      {/* Sections with IDs + scroll margin so navbar doesn't overlap */}
+      {/* PAGE SECTIONS */}
       <section id="about" className="scroll-mt-20">
         <About />
       </section>
@@ -39,6 +44,10 @@ const App = () => {
 
       <section id="publications" className="scroll-mt-20">
         <Publications />
+      </section>
+
+      <section id="training" className="scroll-mt-20">
+        <Training />
       </section>
 
       <section id="contact" className="scroll-mt-20 mt-20">

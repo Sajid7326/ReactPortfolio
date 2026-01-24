@@ -1,0 +1,10 @@
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" stroke="#97ffdb" fill="none" stroke-width="1.2">
+  <rect x="50" y="50" width="300" height="200" rx="4"/>
+  <rect x="400" y="200" width="260" height="300" rx="4"/>
+  <circle cx="280" cy="470" r="120"/>
+  <path d="M100 300 L700 300"/>
+  <path d="M300 100 L300 700"/>
+  <path d="M200 650 L600 150"/>
+  <text x="120" y="140" font-size="22" fill="#97ffdb" opacity="0.75">Urban Grid</text>
+  <text x="440" y="260" font-size="22" fill="#97ffdb" opacity="0.75">Parcels</text>
+</svg>

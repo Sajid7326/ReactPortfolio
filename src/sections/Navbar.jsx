@@ -29,6 +29,11 @@ function Navigation() {
           Publications
         </a>
       </li>
+            <li>
+        <a className="nav-link text-neutral-400 hover:text-white" href="#training">
+          Training
+        </a>
+      </li>
       <li>
         <a className="nav-link text-neutral-400 hover:text-white" href="#contact">
           Contact

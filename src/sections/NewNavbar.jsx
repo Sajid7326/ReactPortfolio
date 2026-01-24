@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import { twMerge } from "tailwind-merge";
+import { Link } from "react-router-dom";
+
+
 
 const NewNavbar = () => {
   const [active, setActive] = useState(null);
@@ -25,48 +28,16 @@ const NewNavbar = () => {
 
           {/* ---- Right Side: Menu (desktop) ---- */}
                <div className="hidden md:flex space-x-6 text-neutral-300">
-  <a 
-    href="#about" 
-    onClick={() => setActive(null)} 
-    className="hover:text-white transition-colors"
-  >
-    About Me
-  </a>
-  <a 
-    href="#projects" 
-    onClick={() => setActive(null)} 
-    className="hover:text-white transition-colors"
-  >
-    Projects
-  </a>
-  <a 
-    href="#experience" 
-    onClick={() => setActive(null)} 
-    className="hover:text-white transition-colors"
-  >
-    Experience
-  </a>
-  <a 
-    href="#education" 
-    onClick={() => setActive(null)} 
-    className="hover:text-white transition-colors"
-  >
-    Education
-  </a>
-  <a 
-    href="#publications" 
-    onClick={() => setActive(null)} 
-    className="hover:text-white transition-colors"
-  >
-    Publications
-  </a>
-  <a 
-    href="#contact" 
-    onClick={() => setActive(null)} 
-    className="hover:text-white transition-colors"
-  >
-    Contact
-  </a>
+  <div className="hidden md:flex space-x-6 text-neutral-300">
+  <Link to="/about">About Me</Link>
+  <Link to="/projects">Projects</Link>
+  <Link to="/experience">Experience</Link>
+  <Link to="/education">Education</Link>
+  <Link to="/publications">Publications</Link>
+  <Link to="/training">Training</Link>
+  <Link to="/contact">Contact</Link>
+</div>
+
 </div>
 
           {/* ---- Toggle Button (mobile) ---- */}

@@ -1,115 +1,79 @@
-import { FlipWords } from "./FlipWords";
-import { motion } from "motion/react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import me from "../assets/portrait.png";
 
-const HeroText = () => {
-  const words = [
-    "Advanced Geospatial Analytics",
-    "Disaster Risk & Hazard Modeling",
-    "Urban Planning & Project Management",
-    "Remote Sensing & Image Classification",
-    "Landscape & Site Development Planning",
-  ];
+const words = [
+  "Remote Sensing & Spatial Decision-Making",
+  "Urban Planning & Project Management",
+  "Hazard Modeling & Risk Analysis",
+  "Geospatial Analytics & Mapping",
+];
 
-  const variants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
+export default function Hero() {
+  const [index, setIndex] = useState(0);
+  const photoRef = useRef(null);
+
+  // rotating specialization words
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="z-20 mt-10 text-left md:mt-5 md:text-left rounded-2xl bg-clip-text">
-      {/* Desktop View */}
-      <div className="flex-col hidden md:flex c-space">
-        <motion.h1
-          className="text-4xl font-bold text-white"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1 }}
-        >
-          Hi, I am Syed Shoabul Islam
-        </motion.h1>
-
-        <div className="flex flex-col items-start space-y-3">
+    <section className="min-h-screen flex items-center justify-center px-10 py-20">
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
+        {/* LEFT — TEXT */}
+        <div>
           <motion.p
-            className="text-8xl font-bold text-white"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.2 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-white/80 text-lg"
           >
-            GIS Analyst
+            Hi, I am Sajid
           </motion.p>
 
-          <motion.p
-            className="text-2xl md:text-3xl font-medium text-white"
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.4 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-white text-5xl font-bold mt-2 ml-[-40px]"
           >
-            I make maps to make sense of our world
-          </motion.p>
+            Geographic Information System Analyst
+          </motion.h1>
 
-          <motion.div
-            variants={variants}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: 1.6 }}
+          {/* rotating specialization */}
+          <motion.p
+            key={index}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-white/90 text-lg mt-4"
           >
-            <FlipWords
-              words={words}
-              className="font-black text-white text-3xl md:text-3xl"
-            />
-          </motion.div>
+            {words[index]}
+          </motion.p>
         </div>
-      </div>
 
-      {/* Mobile View */}
-      <div className="flex flex-col space-y-3 md:hidden items-start text-left mt-20">
-        <motion.p
-          className="text-3xl font-bold text-white"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1 }}
-        >
-          Hi, I am Syed Shoabul Islam
-        </motion.p>
-
-        <motion.p
-          className="text-5xl font-bold text-white"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.2 }}
-        >
-          Graduate Urban Planner
-        </motion.p>
-
-        <motion.p
-          className="text-xl font-medium text-white"
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.4 }}
-        >
-          I make maps to make sense of our world
-        </motion.p>
-
+        {/* RIGHT — PHOTO */}
         <motion.div
-          variants={variants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.6 }}
+          ref={photoRef}
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-[320px] h-[320px] rounded-full overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.35)] ring-2 ring-white/10 mx-auto"
         >
-          <FlipWords
-            words={words}
-            className="font-bold text-white text-3xl"
+          <img
+            src={me}
+            className="w-full h-full object-cover"
+            draggable={false}
           />
         </motion.div>
-      </div>
-    </div>
-  );
-};
 
-export default HeroText;
+      </div>
+    </section>
+  );
+}

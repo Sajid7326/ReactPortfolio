@@ -1,37 +1,36 @@
-import { motion, useScroll, useSpring, useTransform } from "motion/react";
-
-const ParallaxBackground = ({ navbar, children }) => {
-  const { scrollYProgress } = useScroll();
-  const x = useSpring(scrollYProgress, { damping: 50 });
+import { motion, useScroll, useTransform } from "motion/react";
+import { LampContainer } from "../components/lamp";
 
 
-  return (
-    <section className="relative w-full h-screen bg-black/40">
-      <div className="relative w-full h-full overflow-hidden">
-        {/* Background Sky */}
-        <div
-          className="absolute inset-0 w-full h-screen -z-50"
-          style={{
-            backgroundImage: "url(/assets/riv.gif)",
-            backgroundSize: "cover",
-            backgroundPosition: "bottom",
-          }}
-        />
+const ParallaxBackground = ({ navbar, children, showLamp }) => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 10], [0, -10]);
 
+return (
+  <section className="relative  bg-[#050715] overflow-hidden">
 
-        {/* Content Layer */}
-        <div className="relative z-10 w-full h-full flex flex-col">
-          {/* Navbar at the very top */}
-          <div className="w-full">{navbar}</div>
+    {/* NAVBAR (always on top) */}
+    <div className="fixed top-0 left-0 w-auto z-[100] pointer-events-auto">
+      {navbar}
+    </div>
 
-          {/* Hero or children centered */}
-          <div className="flex-1 flex items-center justify-center">
-            {children}
-          </div>
-        </div>
+    {/* Lamp */}
+    {showLamp && (
+      <div className="absolute top-5 left-1/2 -translate-x-1/2 z-[20] pointer-events-none">
+        <LampContainer />
       </div>
-    </section>
-  );
+    )}
+
+    {/* Hero */}
+    <div className="relative z-[10] flex items-center justify-center  pointer-events-auto">
+      <div className="mt-20">
+        {children}
+      </div>
+    </div>
+
+  </section>
+);
+
 };
 
 export default ParallaxBackground;

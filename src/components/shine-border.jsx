@@ -1,4 +1,4 @@
-import Contact from "../sections/Contact";
+import Contact from "../pages/Contact";
 
 export function ShineBorder({ children, shineColor }) {
   return (

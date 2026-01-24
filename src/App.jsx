@@ -12,7 +12,6 @@ import Experiences from "./pages/Experiences";
 import Education from "./pages/Education";
 import { Publications } from "./pages/Publications";
 import { Training } from "./pages/Training";
-import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import NewNavbar from "./pages/NewNavbar";
 
@@ -50,9 +49,6 @@ const App = () => {
         <Training />
       </section>
 
-      <section id="contact" className="scroll-mt-20 mt-20">
-        <Contact />
-      </section>
 
       <Footer />
     </div>

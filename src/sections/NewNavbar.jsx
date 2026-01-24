@@ -35,7 +35,6 @@ const NewNavbar = () => {
   <Link to="/education">Education</Link>
   <Link to="/publications">Publications</Link>
   <Link to="/training">Training</Link>
-  <Link to="/contact">Contact</Link>
 </div>
 
 </div>
@@ -62,7 +61,6 @@ const NewNavbar = () => {
           <a href="#experience" onClick={() => setIsOpen(false)} className="hover:text-white">Experience</a>
           <a href="#education" onClick={() => setIsOpen(false)} className="hover:text-white">Education</a>
           <a href="#publications" onClick={() => setIsOpen(false)} className="hover:text-white">Publications</a>
-          <a href="#contact" onClick={() => setIsOpen(false)} className="hover:text-white">Contact</a>
         </div>
       )}
     </div>

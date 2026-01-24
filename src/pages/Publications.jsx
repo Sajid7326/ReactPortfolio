@@ -5,9 +5,9 @@ import { BackgroundBeams } from "../components/background-beams";
 
 export function Publications() {
   return (
-    <section className="relative flex h-[1000px] w-full flex-col p-15 pt-20">
+    <section className="relative flex h-[1200px] w-full flex-col p-20 pt-20">
       {/* Background Beams */}
-       <div className="absolute inset-0 z-0">
+       <div className="absolute inset-0 z-5">
             <BackgroundBeams />
        </div>
 
@@ -19,7 +19,7 @@ export function Publications() {
         </h2>
         <div className="flex flex-col gap-5 z-10">
           {myPublications.map((pub, idx) => (
-            <PublicationCard key={idx} {...pub} delay={idx * 0.2} />
+            <PublicationCard key={idx} {...pub} delay={idx * 0.4} />
           ))}
         </div>
       </div>

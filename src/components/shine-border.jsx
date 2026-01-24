@@ -3,8 +3,8 @@ import Contact from "../pages/Contact";
 export function ShineBorder({ children, shineColor }) {
   return (
     <div className="relative overflow-hidden max-w-md w-full mx-auto rounded-2xl">
-      <div className="absolute inset-0 animate-pulse rounded-2xl" 
-           style={{ background: `linear-gradient(90deg, ${shineColor.join(", ")})`, opacity: 0.2 }} />
+      <div className="absolute inset-1 animate-pulse rounded-2xl" 
+           style={{ background: `linear-gradient(90deg, ${shineColor.join(", ")})`, opacity: 2.2 }} />
       <div className="relative z-10">{children}</div>
     </div>
   );

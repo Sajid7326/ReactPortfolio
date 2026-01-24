@@ -1,107 +1,73 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+"use client";
+import {
+  Navbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "../components/ui/resizable-navbar";
+import { useState } from "react";
 
-function Navigation() {
-  return (
-    <ul className="flex space-x-4">
-      <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#about">
-          About Me
-        </a>
-      </li>
-      <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#projects">
-          Projects
-        </a>
-      </li>
-      <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#experience">
-          Experience
-        </a>
-      </li>
-      <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#education">
-          Education
-        </a>
-      </li>
-      <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#publications">
-          Publications
-        </a>
-      </li>
-            <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#training">
-          Training
-        </a>
-      </li>
-      <li>
-        <a className="nav-link text-neutral-400 hover:text-white" href="#contact">
-          Contact
-        </a>
-      </li>
-    </ul>
-  );
-}
+export default function PortfolioNavbar() {
+  const navItems = [
+    { name: "About Me", link: "#about" },
+    { name: "Projects", link: "#projects" },
+    { name: "Experience", link: "#experience" },
+    { name: "Education", link: "#education" },
+    { name: "Publications", link: "#publications" },
+    { name: "Training", link: "#training" },
+    { name: "Contact", link: "#contact" },
+  ];
 
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50); // trigger blur when scrolled down
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <div
-      className={`fixed top-0 inset-x-0 z-9999 w-full transition-colors duration-500 ${
-        scrolled ? "backdrop-blur-lg bg-black/50" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto max-w-7xl inset-x-0">
-        <div className="flex items-center justify-between py-2 sm:py-0 z-50">
-          <a
-            href="#"
-            className="ml-6 text-2xl font-bold transition-colors text-neutral-400 hover:text-white"
-          >
-            Syed Shoabul Islam
-          </a>
-          <div className="relative">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden"
-            >
-              <img
-                src={isOpen ? "assets/close.svg" : "assets/menu.svg"}
-                className="w-6 h-6"
-                alt="toggle"
-              />
-            </button>
-            {isOpen && (
-              <motion.nav
-                className="block overflow-hidden text-center sm:hidden"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                style={{ maxHeight: "100vh" }}
-                transition={{ duration: 1 }}
+    <div className="relative w-full z-50">
+      <Navbar>
+        {/* Desktop */}
+        <NavBody>
+          <NavbarLogo>
+            <span className="font-semibold text-white">
+              Syed Shoabul Islam
+            </span>
+          </NavbarLogo>
+
+          <NavItems items={navItems} />
+
+        </NavBody>
+
+        {/* Mobile */}
+        <MobileNav>
+          <MobileNavHeader>
+            <NavbarLogo>
+              <span className="font-semibold text-white">
+                Shoabul
+              </span>
+            </NavbarLogo>
+
+            <MobileNavToggle
+              isOpen={open}
+              onClick={() => setOpen(!open)}
+            />
+          </MobileNavHeader>
+
+          <MobileNavMenu isOpen={open} onClose={() => setOpen(false)}>
+            {navItems.map((item, i) => (
+              <a
+                key={i}
+                href={item.link}
+                onClick={() => setOpen(false)}
+                className="text-white py-2 text-lg"
               >
-                <nav className="pb-5">
-                  <Navigation />
-                </nav>
-              </motion.nav>
-            )}
-          </div>
-          <nav className="hidden sm:flex">
-            <Navigation />
-          </nav>
-        </div>
-      </div>
+                {item.name}
+              </a>
+            ))}
+          </MobileNavMenu>
+        </MobileNav>
+      </Navbar>
     </div>
   );
-};
-
-export default Navbar;
+}

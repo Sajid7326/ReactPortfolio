@@ -85,8 +85,8 @@ export const myExperience = [
   link: "https://www.iwmbd.org",
   date: "Nov 2025 – Present",
   
- project: "Consultancy Services for Procurement of Mouza Map Digitization and Geodatabase Creation, Dhaka Division",
-  tasks: [
+  project: "Consultancy Services for Procurement of Mouza Map Digitization and Geodatabase Creation, Dhaka Division",
+   tasks: [
     "Supporting the Team Leader in executing GIS-related tasks.",
     "Conducting quality checks on digitized GIS mouza maps.",
     "Preparing and structuring GIS databases.",

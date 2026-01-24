@@ -40,13 +40,13 @@ export function HoverEffect({ items = [], className }) {
        </p>
        )}
 
-{item.tasks && (
-  <ul className="list-disc pl-5 space-y-1 text-neutral-300 text-sm">
-    {item.tasks.map((t, i) => (
-      <li key={i}>{t}</li>
-    ))}
-  </ul>
-)}
+      {item.tasks && (
+            <ul className="list-disc pl-5 space-y-1 text-neutral-300 text-sm">
+               {item.tasks.map((t, i) => (
+               <li key={i}>{t}</li>
+      ))}
+           </ul>
+             )}
 
           {/* Website Link */}
           {item.link && (

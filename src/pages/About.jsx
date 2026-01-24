@@ -25,7 +25,7 @@ const About = () => {
         <div className="
           col-span-6 md:col-span-3 rounded-2xl border border-white/10
           backdrop-blur-sm bg-white/5 shadow relative min-h-[15rem]
-          hover:scale-[1.04] transition-all duration-300 overflow-hidden
+          hover:scale-[1.10] transition-all duration-300 overflow-hidden
         ">
           <div ref={grid2Container} className="relative flex items-center justify-center w-full h-full">
             <p className="text-3xl md:text-4xl lg:text-5xl text-white/80">
@@ -48,7 +48,7 @@ const About = () => {
   className="
     col-span-6 md:col-span-3 relative cursor-pointer overflow-hidden
     rounded-2xl border border-white/10 backdrop-blur-sm bg-white/5
-    hover:scale-[1.03] transition-all duration-300 shadow-lg
+    hover:scale-[1.10] transition-all duration-300 shadow-lg
     min-h-[15rem]
   "
 >
@@ -72,9 +72,9 @@ const About = () => {
 
 
         {/* SKILLS */}
-        <div className="col-span-6 rounded-2xl border border-white/10 backdrop-blur-sm bg-white/5 p-6 shadow">
+        <div className="col-span-6 rounded-2xl border border-white/10 backdrop-blur-sm bg-white/5 p-6 shadow hover:scale-[1.10] transition-all duration-300">
           <p className="text-lg font-semibold text-white mb-3">Software Proficiency</p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 ">
             {skills.map((s) => (
               <span key={s} className="px-3 py-1 text-xs rounded-lg bg-white/10 border border-white/10">
                 {s}

@@ -82,22 +82,24 @@ export const myExperience = [
  {
   title: "GIS Analyst",
   job: "Institute of Water Modelling (IWM)",
+  link: "https://www.iwmbd.org",
   date: "Nov 2025 – Present",
   
-  content: [
-    "Project Name: Consultancy Services for Procurement of Mouza Map Digitization and Geodatabase Creation, Dhaka Division (Package-05) (P-52547)",
-    "Supporting the Team Leader in executing GIS-related tasks under project requirements.",
-    "Conducting quality checks on digitized GIS mouza maps to ensure accuracy and consistency.",
-    "Preparing and structuring GIS databases according to specified project formats.",
-    "Georeferencing and performing edge-matching of digitized mouza map sheets.",
-    "Coordinating with project team members and clients for smooth workflow and deliverables.",
-    "Participating in field visits for ground-truthing and validation of digitized mouza data.",
+ project: "Consultancy Services for Procurement of Mouza Map Digitization and Geodatabase Creation, Dhaka Division",
+  tasks: [
+    "Supporting the Team Leader in executing GIS-related tasks.",
+    "Conducting quality checks on digitized GIS mouza maps.",
+    "Preparing and structuring GIS databases.",
+    "Georeferencing digitized mouza map sheets.",
+    "Coordinating with project members and clients.",
+    "Participating in field visits for validation of mouza data."
   ],
 },
 
   {
     title: "Intern",
     job: "Urban Development Directorate (UDD), Ministry of Housing and Public Works",
+    link: "http://udd.gov.bd",
     date: "Dec 2024",
     content: [
       "Contributed to drafting the National Urbanization Policy of Bangladesh.",
@@ -109,6 +111,7 @@ export const myExperience = [
   {
     title: "Data Validator",
     job: "Chattogram Development Authority (CDA)",
+    link: "https://cda.gov.bd/",
     date: "Oct 2024",
     content: [
       "Participated in the Chattogram Metropolitan Masterplan 2024–2041 project.",
@@ -119,6 +122,7 @@ export const myExperience = [
     {
     title: "Research Assistant",
     job: "Department of Civil Engineering, Chittagong University of Engineering and Technology (CUET)",
+    link: "https://cuet.ac.bd/department/CE",
     date: "Oct 2023 – Apr 2024",
     content: [
       "Project Title: 'Disaster Resilience and Equitable Tomorrow’s Cities in Bangladesh'.",

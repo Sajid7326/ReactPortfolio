@@ -19,7 +19,7 @@ export default function PortfolioNavbar() {
     { name: "Education", link: "#education" },
     { name: "Publications", link: "#publications" },
     { name: "Training", link: "#training" },
-    { name: "Contact", link: "#contact" },
+    { name: "Gallery", link: "#gallery" },
   ];
 
   const [open, setOpen] = useState(false);

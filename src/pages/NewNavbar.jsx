@@ -18,7 +18,7 @@ const navItems = [
   { name: "Education", link: "#education" },
   { name: "Publications", link: "#publications" },
   { name: "Training", link: "#training" },
-  { name: "Contact", link: "#contact" },
+  { name: "Gallery", link: "#gallery" },
 ];
 
 export default function NewNavbar() {

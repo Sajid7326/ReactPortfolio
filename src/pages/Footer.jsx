@@ -21,19 +21,15 @@ export default function Footer() {
                 GIS Analyst | Urban Planner
               </p>
 
-              <div className="w-full max-w-52 h-px mt-6 bg-gradient-to-r from-black via-white/25 to-black"></div>
+              <div className="w-full max-w-50 h-px mt-6 bg-gradient-to-r from-black via-white/100 to-black"></div>
 
-              <p className="text-sm text-white/60 mt-6 max-w-sm leading-relaxed">
-                Passionate about geospatial analytics, spatial decision making,
-                and transforming urban data into meaningful insights.
-              </p>
 
-              <button
+             <button
                 onClick={() => setIsOpen(true)}
-                className="mt-4 px-6 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-300 transition"
-              >
-                Contact Me
-              </button>
+                className="px-6 py-2 mt-4 rounded-full bg-white text-black font-medium hover:bg-gray-800 transition relative"
+             >
+                    Contact Me
+             </button>
             </div>
 
             {/* NAVIGATION */}
@@ -44,8 +40,10 @@ export default function Footer() {
                   { name: "About", link: "#about" },
                   { name: "Projects", link: "#projects" },
                   { name: "Experience", link: "#experience" },
+                  { name: "Education", link: "#education" },
                   { name: "Publications", link: "#publications" },
                   { name: "Training", link: "#training" },
+                  { name: "Gallery", link: "#gallery" },
                 ].map((item, i) => (
                   <a key={i} href={item.link} className="text-sm text-white/60 hover:text-white transition-colors">
                     {item.name}
@@ -71,7 +69,7 @@ export default function Footer() {
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/60">
-              © {new Date().getFullYear()} Syed Shoabul Islam
+              © {new Date().getFullYear()} Copyright Syed Shoabul Islam
             </p>
             <div className="flex items-center gap-6">
               <a href="#" className="text-xs text-white/60 hover:text-white transition-colors">

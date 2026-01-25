@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -305,4 +305,55 @@ html, body, #root {
 
 .leaflet-container {
   background: #0b0f1a !important;
+}
+/* Electric Pulse Glow */
+@keyframes electric-pulse {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 10, 127, 0.6),
+                0 0 16px rgba(120, 14, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(255, 10, 127, 0.9),
+                0 0 28px rgba(120, 14, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 10, 127, 0.6),
+                0 0 16px rgba(120, 14, 255, 0.5);
+  }
+}
+
+.rainbow-btn {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 9999px;
+  transition: 0.3s ease;
+  animation: electric-pulse 2s infinite ease-in-out;
+}
+
+.rainbow-btn:hover {
+  transform: scale(1.08);
+  animation-duration: 1.4s;
+}
+
+.rainbow-btn:active {
+  transform: scale(0.97);
+}
+
+/* Keep rotating gradient ring */
+.rainbow-btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: linear-gradient(#FF0A7F, #780EFF);
+  background-repeat: no-repeat;
+  background-size: 50% 30%;
+  background-position: 100% 50%;
+  filter: blur(6px);
+  animation: rotate-rainbow 4s linear infinite;
 }

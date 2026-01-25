@@ -14,6 +14,7 @@ import { Publications } from "./pages/Publications";
 import { Training } from "./pages/Training";
 import Footer from "./pages/Footer";
 import NewNavbar from "./pages/NewNavbar";
+import Gallery from "./sections/Gallery";
 
 const App = () => {
   return (
@@ -47,6 +48,10 @@ const App = () => {
 
       <section id="training" className="scroll-mt-20">
         <Training />
+      </section>
+      
+      <section id="gallery" className="scroll-mt-20">
+        <Gallery />
       </section>
 
 

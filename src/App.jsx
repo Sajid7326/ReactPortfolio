@@ -1,31 +1,27 @@
 import React from "react";
-
-// Hero Layer Components
-import ParallaxBackground from "./pages/ParallaxBackground";
-import Hero from "./pages/Hero";   // FIXED HERE
 import { motion } from "motion/react";
 
+import NewNavbar from "./pages/NewNavbar";
+import ParallaxBackground from "./pages/ParallaxBackground";
+
 // Sections
+import Hero from "./pages/Hero";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Experiences from "./pages/Experiences";
 import Education from "./pages/Education";
 import { Publications } from "./pages/Publications";
 import { Training } from "./pages/Training";
+import Gallery from "./pages/Gallery";
 import Footer from "./pages/Footer";
-import NewNavbar from "./pages/NewNavbar";
-import Gallery from "./sections/Gallery";
 
 const App = () => {
   return (
     <div className="w-screen overflow-x-hidden">
-      
-      {/* HERO SECTION */}
       <ParallaxBackground navbar={<NewNavbar />} bg3D={null}>
         <Hero />
       </ParallaxBackground>
 
-      {/* PAGE SECTIONS */}
       <section id="about" className="scroll-mt-20">
         <About />
       </section>
@@ -49,11 +45,10 @@ const App = () => {
       <section id="training" className="scroll-mt-20">
         <Training />
       </section>
-      
+
       <section id="gallery" className="scroll-mt-20">
         <Gallery />
       </section>
-
 
       <Footer />
     </div>

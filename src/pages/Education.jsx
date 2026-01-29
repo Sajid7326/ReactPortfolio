@@ -1,12 +1,12 @@
-import { ArcTimeline, EDUCATION_TIMELINE } from "../components/arc-timeline";
+import ExpandableEducation from "../components/ExpandableEducation";
 
-export default function EducationTimeline() {
+export default function Education() {
   return (
-    <section className="p-10 flex flex-col items-center justify-center min-h-screen">
-      <h2 className="text-6xl font-bold mb-15 ml-5 text-center text-white">
+    <section id="education" className="py-20">
+      <h2 className="text-center text-4xl font-semibold mb-10">
         Education
       </h2>
-      <ArcTimeline data={EDUCATION_TIMELINE} />
+      <ExpandableEducation />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { workCards } from "../constants/workCards";
 
 const Experiences = () => {
   return (
-    <section id="experience" className="scroll-mt-10 py-20">
+    <section className="pt-28 pb-20">
       <h2 className="text-center text-4xl md:text-5xl font-bold text-white mb-10">
         Work Experience
       </h2>

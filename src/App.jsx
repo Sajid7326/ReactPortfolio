@@ -1,54 +1,36 @@
-import React from "react";
-import { motion } from "motion/react";
+import { Routes, Route } from "react-router-dom";
 
 import NewNavbar from "./pages/NewNavbar";
-import ParallaxBackground from "./pages/ParallaxBackground";
+import Footer from "./pages/Footer";
 
-// Sections
-import Hero from "./pages/Hero";
+// Pages
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Experiences from "./pages/Experiences";
 import Education from "./pages/Education";
-import { Publications } from "./pages/Publications";
-import { Training } from "./pages/Training";
+import Publications from "./pages/Publications";
+import Training from "./pages/Training";
 import Gallery from "./pages/Gallery";
-import Footer from "./pages/Footer";
 
 const App = () => {
   return (
     <div className="w-screen overflow-x-hidden">
-      <ParallaxBackground navbar={<NewNavbar />} bg3D={null}>
-        <Hero />
-      </ParallaxBackground>
+      <NewNavbar />
 
-      <section id="about" className="scroll-mt-20">
-        <About />
-      </section>
+      <Routes>
+        {/* HOME = ABOUT */}
+        <Route path="/" element={<About />} />
 
-      <section id="projects" className="scroll-mt-20">
-        <Projects />
-      </section>
+        {/* OPTIONAL ALIAS */}
+        <Route path="/about" element={<About />} />
 
-      <section id="experience" className="scroll-mt-20">
-        <Experiences />
-      </section>
-
-      <section id="education" className="scroll-mt-20 mt-20">
-        <Education />
-      </section>
-
-      <section id="publications" className="scroll-mt-20">
-        <Publications />
-      </section>
-
-      <section id="training" className="scroll-mt-20">
-        <Training />
-      </section>
-
-      <section id="gallery" className="scroll-mt-20">
-        <Gallery />
-      </section>
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<Experiences />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/training" element={<Training />} />
+        <Route path="/gallery" element={<Gallery />} />
+      </Routes>
 
       <Footer />
     </div>

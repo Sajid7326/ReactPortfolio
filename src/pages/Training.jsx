@@ -2,6 +2,9 @@ import React from "react";
 import { BackgroundBeams } from "../components/background-beams";
 import { CardContainer, CardBody, CardItem } from "../ui/3d-card";
 
+/* =======================
+   TRAINING DATA
+======================= */
 const trainings = [
   {
     title: "Remote Sensing & Photogrammetry",
@@ -53,44 +56,48 @@ const trainings = [
   },
 ];
 
-export const Training = () => {
+/* =======================
+   PAGE COMPONENT
+======================= */
+const Training = () => {
   return (
-    <section
-      id="training"
-      className="relative flex flex-col items-center justify-center py-20 md:py-24 overflow-hidden"
-    >
-      {/* Background beams */}
+    <section className="relative pt-28 pb-20 overflow-hidden">
+      {/* Background Effect */}
       <div className="absolute inset-0 -z-10 opacity-50 pointer-events-none">
         <BackgroundBeams />
       </div>
 
-      {/* Title */}
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 md:mb-16 tracking-wide">
+      {/* Page Title */}
+      <h2 className="text-center text-3xl md:text-4xl font-bold text-white mb-12 md:mb-16 tracking-wide">
         Training
       </h2>
 
       {/* Desktop Grid */}
-      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0 max-w-6xl">
-        {trainings.map((t, i) => (
-          <TrainingCard key={i} {...t} />
+      <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto">
+        {trainings.map((training, index) => (
+          <TrainingCard key={index} {...training} />
         ))}
       </div>
 
-      {/* Mobile List */}
-      <div className="flex flex-col gap-6 sm:hidden w-full px-6">
-        {trainings.map((t, i) => (
-          <TrainingCardMobile key={i} {...t} />
+      {/* Mobile Layout */}
+      <div className="flex flex-col gap-6 sm:hidden px-6 max-w-6xl mx-auto">
+        {trainings.map((training, index) => (
+          <TrainingCardMobile key={index} {...training} />
         ))}
       </div>
     </section>
   );
 };
 
-/* Desktop Card */
+export default Training;
+
+/* =======================
+   DESKTOP CARD
+======================= */
 const TrainingCard = ({ title, issuer, logo, details, certificate }) => (
   <CardContainer className="w-[290px]">
     <CardBody className="bg-[#FBEFEF] border border-black/10 rounded-xl p-4 shadow-md flex flex-col justify-between h-[300px] text-black">
-      {/* Top section */}
+      {/* Top Content */}
       <div className="space-y-2">
         <div className="flex justify-between items-start">
           <p className="font-semibold text-sm">{title}</p>
@@ -103,15 +110,15 @@ const TrainingCard = ({ title, issuer, logo, details, certificate }) => (
           )}
         </div>
 
-        {/* Issuer tag */}
+        {/* Issuer */}
         <span className="inline-block text-[10px] px-2 py-[2px] rounded-md bg-black text-white">
           {issuer}
         </span>
 
-        {/* Bullet list */}
+        {/* Details */}
         <ul className="text-xs space-y-1 list-disc list-inside opacity-80">
-          {details.map((d, i) => (
-            <li key={i}>{d}</li>
+          {details.map((detail, i) => (
+            <li key={i}>{detail}</li>
           ))}
         </ul>
       </div>
@@ -131,12 +138,16 @@ const TrainingCard = ({ title, issuer, logo, details, certificate }) => (
   </CardContainer>
 );
 
-/* Mobile Card */
+/* =======================
+   MOBILE CARD
+======================= */
 const TrainingCardMobile = ({ title, issuer, logo, details, certificate }) => (
   <div className="bg-[#FBEFEF] border border-black/10 rounded-xl p-4 shadow-md text-black space-y-3">
     <div className="flex justify-between items-start">
       <p className="font-semibold text-sm">{title}</p>
-      {logo && <img src={logo} alt={issuer} className="w-8 h-8" />}
+      {logo && (
+        <img src={logo} alt={issuer} className="w-8 h-8 object-contain" />
+      )}
     </div>
 
     <span className="text-[10px] px-2 py-[2px] rounded-md bg-black text-white">
@@ -144,14 +155,15 @@ const TrainingCardMobile = ({ title, issuer, logo, details, certificate }) => (
     </span>
 
     <ul className="text-xs space-y-1 opacity-80 list-disc list-inside">
-      {details.map((d, i) => (
-        <li key={i}>{d}</li>
+      {details.map((detail, i) => (
+        <li key={i}>{detail}</li>
       ))}
     </ul>
 
     <a
       href={certificate}
       target="_blank"
+      rel="noopener noreferrer"
       className="block w-full text-center py-1.5 rounded-md text-xs font-semibold bg-black text-white mt-1"
     >
       View Certificate →

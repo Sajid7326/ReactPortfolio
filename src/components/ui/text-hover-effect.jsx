@@ -1,25 +1,34 @@
 "use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
-export function TextHoverEffect({ text }) {
+export function TextHoverEffect({ text, className = "" }) {
   return (
-    <div className="relative inline-block group cursor-default">
-      <motion.span
-        className="text-4xl md:text-6xl font-bold tracking-tight text-white"
-      >
-        {text}
-      </motion.span>
+    <span
+      className={`
+        relative inline-block cursor-default
+        font-mono tracking-wide
+        text-white/80
+        transition-colors duration-300
+        hover:text-cyan-400
+        ${className}
+      `}
+    >
+      {/* Text */}
+      {text}
 
-      <motion.span
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 blur-md text-cyan-400 transition-opacity duration-300 pointer-events-none"
-      >
-        {text}
-      </motion.span>
-    </div>
+      {/* Underline */}
+      <span
+        className="
+          pointer-events-none
+          absolute left-0 -bottom-1
+          h-[1.5px] w-full
+          bg-gradient-to-r from-cyan-400 to-blue-500
+          scale-x-0
+          origin-left
+          transition-transform duration-300 ease-out
+          group-hover:scale-x-100
+        "
+      />
+    </span>
   );
 }

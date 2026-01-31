@@ -1,12 +1,12 @@
-import ParallaxBackground from "../sections/ParallaxBackground";
-import Hero from "../sections/Hero";
+import ParallaxBackground from "./ParallaxBackground";
+import Hero from "./Hero";
 
-export default function Home() {
+const Home = () => {
   return (
-    <>
-      <ParallaxBackground>
-        <Hero />
-      </ParallaxBackground>
-    </>
+    <ParallaxBackground navbar={null} bg3D={null}>
+      <Hero />
+    </ParallaxBackground>
   );
-}
+};
+
+export default Home;

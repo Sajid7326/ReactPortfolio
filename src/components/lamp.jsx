@@ -10,7 +10,7 @@ export function LampContainer({ children, className }) {
         initial={{ opacity: 1, width: 2 }}
         animate={{ opacity: 1, width: "100%", scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute top-0 h-[400px] rounded-full bg-FFD87A-800/30 blur-[100px]"
+        className="absolute top-0 h-[400px] rounded-full bg-FFD87A-800/30 blur-[50px]"
       />
 
       {/* glow inner */}
@@ -26,7 +26,7 @@ export function LampContainer({ children, className }) {
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1.2 }}
         transition={{ delay: 0.5, duration: 2 }}
-        className="absolute top-[10px] w-[300px] h-[3px] bg-cyan-300/70"
+        className="absolute top-[1px] w-[300px] h-[2px] bg-cyan-300/70"
       />
 
       <div className="relative z-10">{children}</div>

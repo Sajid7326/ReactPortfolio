@@ -1,23 +1,22 @@
-// Publications.jsx
 import { myPublications } from "../constants";
 import { PublicationCard } from "../components/PublicationCard";
 import { BackgroundBeams } from "../components/background-beams";
 
-export function Publications() {
+const Publications = () => {
   return (
-    <section className="relative flex h-[1200px] w-full flex-col p-20 pt-20">
+    <section className="relative w-full pt-28 pb-20 px-6 md:px-20">
       {/* Background Beams */}
-       <div className="absolute inset-0 z-5">
-            <BackgroundBeams />
-       </div>
-
+      <div className="absolute inset-0 z-5">
+        <BackgroundBeams />
+      </div>
 
       {/* Foreground content */}
-      <div className="relative z-10">
-        <h2 className="mb-8 ml- -1 text-center text-4xl font-bold text-white">
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <h2 className="mb-8 text-center text-4xl font-bold text-white">
           Publications
         </h2>
-        <div className="flex flex-col gap-5 z-10">
+
+        <div className="flex flex-col gap-5">
           {myPublications.map((pub, idx) => (
             <PublicationCard key={idx} {...pub} delay={idx * 0.4} />
           ))}
@@ -25,4 +24,6 @@ export function Publications() {
       </div>
     </section>
   );
-}
+};
+
+export default Publications;

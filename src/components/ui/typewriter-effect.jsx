@@ -1,33 +1,56 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-export function TypewriterEffectSmooth({ words, speed = 120, delay = 1000 }) {
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
+export function TypewriterEffectSmooth({
+  words,
+  speed = 80,
+  delay = 1200,
+  className = "",
+}) {
+  const [displayed, setDisplayed] = useState([]);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    let isMounted = true;
-    let timeout;
+    const currentWord = words[wordIndex];
+    if (!currentWord) return;
 
-    const writeWord = async () => {
-      const word = words[index].text;
-      for (let i = 0; i <= word.length; i++) {
-        if (!isMounted) return;
-        setText(word.slice(0, i));
-        await new Promise(res => setTimeout(res, speed));
-      }
+    // typing characters
+    if (charIndex < currentWord.text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayed((prev) => {
+          const copy = [...prev];
+          copy[wordIndex] = {
+            ...currentWord,
+            text: currentWord.text.slice(0, charIndex + 1),
+          };
+          return copy;
+        });
+        setCharIndex((prev) => prev + 1);
+      }, speed);
 
-      await new Promise(res => setTimeout(res, delay));
-      setIndex(prev => (prev + 1) % words.length);
-    };
+      return () => clearTimeout(timeout);
+    }
 
-    writeWord();
-    return () => { isMounted = false };
-  }, [index, words, speed, delay]);
+    // move to next word
+    const pause = setTimeout(() => {
+      setWordIndex((prev) => prev + 1);
+      setCharIndex(0);
+    }, delay);
 
-  return (
-    <span className="inline-block">
-      {text}
-    </span>
-  );
+    return () => clearTimeout(pause);
+  }, [charIndex, wordIndex, words, speed, delay]);
+return (
+  <div className={`flex items-center gap-1 ${className}`}>
+    {displayed.map((word, i) => (
+      <span key={i} className={word.className || ""}>
+        {word.text}
+      </span>
+    ))}
+
+    {/* Blinking cursor */}
+    <span className="ml-1 w-[2px] h-4 bg-cyan-400 animate-pulse" />
+  </div>
+);
+
 }

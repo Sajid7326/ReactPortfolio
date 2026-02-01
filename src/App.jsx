@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-
-import NewNavbar from "./pages/NewNavbar";
+import Navbar from "./components/Navbar";
 import Footer from "./pages/Footer";
 
 // Pages
@@ -15,15 +14,13 @@ import Gallery from "./pages/Gallery";
 const App = () => {
   return (
     <div className="w-screen overflow-x-hidden">
-      <NewNavbar />
+      
+      {/* ✅ NAVBAR MUST BE HERE */}
+      <Navbar />
 
       <Routes>
-        {/* HOME = ABOUT */}
         <Route path="/" element={<About />} />
-
-        {/* OPTIONAL ALIAS */}
         <Route path="/about" element={<About />} />
-
         <Route path="/projects" element={<Projects />} />
         <Route path="/experience" element={<Experiences />} />
         <Route path="/education" element={<Education />} />

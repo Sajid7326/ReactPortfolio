@@ -5,31 +5,48 @@ import { motion } from "motion/react";
 export function LampContainer({ children, className }) {
   return (
     <div className={`relative flex flex-col items-center ${className || ""}`}>
-      {/* glow */}
+
+      {/* ===== DARK MODE ONLY: OUTER GLOW ===== */}
       <motion.div
-        initial={{ opacity: 1, width: 2 }}
+        initial={{ opacity: 0, width: 2 }}
         animate={{ opacity: 1, width: "100%", scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="absolute top-0 h-[400px] rounded-full bg-FFD87A-800/30 blur-[50px]"
+        className="
+          absolute top-0 h-[400px] rounded-full blur-[60px]
+          hidden dark:block
+          bg-cyan-800/30
+        "
       />
 
-      {/* glow inner */}
+      {/* ===== DARK MODE ONLY: INNER GLOW ===== */}
       <motion.div
-        initial={{ opacity: 0.5, y: 100 }}
+        initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8,   ease: "easeInOut", }}
-        className="absolute top-8 h-[200px] w-[600px] bg-cyan-600/30 rounded-full blur-[90px]"
+        transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
+        className="
+          absolute top-8 h-[220px] w-[600px] rounded-full blur-[90px]
+          hidden dark:block
+          bg-cyan-600/30
+        "
       />
 
-      {/* beam line */}
+      {/* ===== LAMP BEAM / OUTLINE ===== */}
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1.2 }}
         transition={{ delay: 0.5, duration: 2 }}
-        className="absolute top-[1px] w-[300px] h-[2px] bg-cyan-300/70"
+        className="
+          absolute top-[1px] w-[300px] h-[2px]
+
+          bg-slate-900
+          dark:bg-cyan-300/70
+        "
       />
 
-      <div className="relative z-10">{children}</div>
+      {/* ===== CONTENT ===== */}
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 }

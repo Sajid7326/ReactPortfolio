@@ -1,6 +1,6 @@
-"use client";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 import {
   Navbar,
@@ -27,35 +27,91 @@ const navItems = [
 export default function NewNavbar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
-  /* 🔁 Logo click → Home page */
   const goHome = () => {
-    navigate("/");
+    navigate("/about");
     setOpen(false);
   };
 
   return (
-    <Navbar>
+    <Navbar
+      className="
+        bg-[#f8f9fb] text-black
+        dark:bg-black/60 dark:text-white
+        border-b border-neutral-200 dark:border-white/10
+        backdrop-blur-md
+        transition-colors duration-300
+      "
+    >
+      {/* ================= DESKTOP NAV ================= */}
       <NavBody>
-        <NavbarLogo onClick={goHome} />
-
-        {/* Desktop Nav */}
-        <NavItems
-          items={navItems.map((item) => ({
-            ...item,
-            onClick: () => navigate(item.link),
-          }))}
+        <NavbarLogo
+          onClick={goHome}
+          className="text-black dark:text-white"
         />
+
+        <div className="flex items-center gap-4">
+          <NavItems
+            items={navItems.map((item) => ({
+              ...item,
+              onClick: () => navigate(item.link),
+              className: `
+                text-black dark:text-white
+                hover:text-neutral-600 dark:hover:text-cyan-300
+                transition-colors
+              `,
+            }))}
+          />
+
+          {/* 🌗 THEME TOGGLE */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="
+              ml-2 px-3 py-1 rounded-full text-sm
+              border border-neutral-300 dark:border-white/10
+              text-black dark:text-white
+              hover:bg-neutral-200 dark:hover:bg-white/10
+              transition
+            "
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+        </div>
       </NavBody>
 
-      {/* Mobile Nav */}
+      {/* ================= MOBILE NAV ================= */}
       <MobileNav>
-        <MobileNavHeader>
-          <NavbarLogo onClick={goHome} />
-          <MobileNavToggle isOpen={open} onClick={() => setOpen(!open)} />
+        <MobileNavHeader
+          className="
+            bg-[#f8f9fb] dark:bg-black
+            border-b border-neutral-200 dark:border-white/10
+          "
+        >
+          <NavbarLogo
+            onClick={goHome}
+            className="text-black dark:text-white"
+          />
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="px-2 text-lg text-black dark:text-white"
+            >
+              {theme === "dark" ? "☀️" : "🌙"}
+            </button>
+            <MobileNavToggle isOpen={open} onClick={() => setOpen(!open)} />
+          </div>
         </MobileNavHeader>
 
-        <MobileNavMenu isOpen={open}>
+        <MobileNavMenu
+          isOpen={open}
+          className="
+            bg-[#f8f9fb] dark:bg-black
+            border-t border-neutral-200 dark:border-white/10
+          "
+        >
           {navItems.map((item, idx) => (
             <button
               key={idx}
@@ -63,7 +119,12 @@ export default function NewNavbar() {
                 navigate(item.link);
                 setOpen(false);
               }}
-              className="pl-2 py-1 border-l border-white/10 text-left"
+              className="
+                pl-3 py-2 text-left
+                text-black dark:text-white
+                hover:bg-neutral-200 dark:hover:bg-white/10
+                transition
+              "
             >
               {item.name}
             </button>

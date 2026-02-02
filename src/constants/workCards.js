@@ -35,7 +35,7 @@ export const workCards = [
 
   {
     title: "Research Assistant",
-    subtitle: "Department of Civil Engineering, CUET",
+    subtitle: "Department of Civil Engineering , Chittagong University of Engineering and Technology",
     date: "Oct 2023 – Apr 2024",
 
     project:

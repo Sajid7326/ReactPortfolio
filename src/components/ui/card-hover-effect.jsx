@@ -11,50 +11,89 @@ export function HoverEffect({ items = [], className }) {
       {items.map((item, index) => (
         <motion.div
           key={index}
-          whileHover={{ scale: 1.10, y: -4 }}
-          transition={{ type: "easeout", stiffness: 100, damping: 5 }}
-          className="group relative cursor-pointer rounded-2xl border border-white/10 bg-white/5 shadow-lg p-5 hover:bg-white/10 transition-all duration-300"
+          whileHover={{ scale: 1.06, y: -4 }}
+          transition={{ type: "easeOut", stiffness: 120, damping: 12 }}
+          className="
+            group relative cursor-pointer rounded-2xl
+            border border-neutral-200
+            bg-white
+            shadow-md
+            p-5
+            transition-all duration-300
+
+            dark:border-white/10
+            dark:bg-white/5
+            dark:shadow-lg
+            hover:shadow-xl
+            dark:hover:bg-white/10
+          "
         >
-          {/* Title */}
-          <p className="text-lg font-bold text-white">
+          {/* ===== TITLE ===== */}
+          <p className="
+            text-lg font-bold
+            text-slate-900
+            dark:text-white
+          ">
             {item.title}
           </p>
 
-          {/* Workplace */}
+          {/* ===== WORKPLACE ===== */}
           {item.subtitle && (
-            <p className="text-sm text-blue-300 font-2xl mt-3">
+            <p className="
+              text-sm font-medium mt-3
+              text-blue-600
+              dark:text-blue-300
+            ">
               {item.subtitle}
             </p>
           )}
 
-          {/* Date */}
+          {/* ===== DATE ===== */}
           {item.date && (
-            <p className="text-xs text-neutral-400 mt-3 mb-3">
+            <p className="
+              text-xs mt-3 mb-3
+              text-slate-500
+              dark:text-neutral-400
+            ">
               {item.date}
             </p>
           )}
 
+          {/* ===== PROJECT ===== */}
           {item.project && (
-       <p className="font-semibold text-neutral-200 mb-3">
-               {item.project}
-       </p>
-       )}
+            <p className="
+              font-semibold mb-3
+              text-slate-700
+              dark:text-neutral-200
+            ">
+              {item.project}
+            </p>
+          )}
 
-      {item.tasks && (
-            <ul className="list-disc pl-5 space-y-1 text-neutral-300 text-sm">
-               {item.tasks.map((t, i) => (
-               <li key={i}>{t}</li>
-      ))}
-           </ul>
-             )}
+          {/* ===== TASKS ===== */}
+          {item.tasks && (
+            <ul className="
+              list-disc pl-5 space-y-1 text-sm
+              text-slate-600
+              dark:text-neutral-300
+            ">
+              {item.tasks.map((t, i) => (
+                <li key={i}>{t}</li>
+              ))}
+            </ul>
+          )}
 
-          {/* Website Link */}
+          {/* ===== LINK ===== */}
           {item.link && (
             <a
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-blue-300 text-sm mt-3 hover:underline underline-offset-4"
+              className="
+                block text-sm mt-4 font-medium
+                text-blue-600 hover:underline underline-offset-4
+                dark:text-blue-300
+              "
             >
               Visit Organization →
             </a>

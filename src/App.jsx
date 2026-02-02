@@ -13,9 +13,7 @@ import Gallery from "./pages/Gallery";
 
 const App = () => {
   return (
-    <div className="w-screen overflow-x-hidden">
-      
-      {/* ✅ NAVBAR MUST BE HERE */}
+    <div className="min-h-screen overflow-x-hidden bg-white dark:bg-black">
       <Navbar />
 
       <Routes>
@@ -35,3 +33,4 @@ const App = () => {
 };
 
 export default App;
+

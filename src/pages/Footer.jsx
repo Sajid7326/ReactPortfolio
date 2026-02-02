@@ -1,84 +1,142 @@
 import { useState } from "react";
-import { mySocials } from "../constants";
 import ContactModal from "../components/ContactModal";
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const socials = [
+    {
+      name: "Facebook",
+      href: "https://facebook.com",
+      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg",
+    },
+    {
+      name: "LinkedIn",
+      href: "https://linkedin.com",
+      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg",
+    },
+    {
+      name: "Instagram",
+      href: "https://instagram.com",
+      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg",
+    },
+    {
+      name: "WhatsApp",
+      href: "https://wa.me/880XXXXXXXXXX",
+      icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg",
+      highlight: true,
+    },
+  ];
+
+  const navigation = [
+    { name: "About", link: "/about" },
+    { name: "Projects", link: "/projects" },
+    { name: "Experience", link: "/experience" },
+    { name: "Education", link: "/education" },
+    { name: "Publications", link: "/publications" },
+    { name: "Training", link: "/training" },
+    { name: "Gallery", link: "/gallery" },
+  ];
+
   return (
     <>
-      <footer className="bg-black py-12 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-7xl mx-auto">
+      <footer
+        className="
+          relative z-50 isolate
+          bg-[#27282b]
+          text-slate-300
+          py-14 px-6
+        "
+      >
+        <div className="max-w-6xl mx-auto">
 
-          <div className="flex flex-wrap justify-between gap-y-12 lg:gap-x-8">
+          {/* ================= TOP SECTION ================= */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
-            {/* BRAND / ABOUT */}
-            <div className="w-full md:w-[45%] lg:w-[35%] flex flex-col items-center md:items-start text-center md:text-left">
-              <h2 className="text-white text-xl font-semibold tracking-wide">
+            {/* ===== ABOUT / CONTACT ===== */}
+            <div>
+              <h4 className="text-white font-medium text-lg">
                 Syed Shoabul Islam
-              </h2>
-              <p className="text-white/50 text-sm mt-2">
+              </h4>
+
+              <p className="text-sm mt-4 leading-relaxed max-w-md text-slate-400">
                 GIS Analyst | Urban Planner
               </p>
 
-              <div className="w-full max-w-50 h-px mt-6 bg-gradient-to-r from-black via-white/100 to-black"></div>
+              <div className="mt-10 space-y-4 space-x-10">
 
+                <div className="inline-flex items-center gap-3 text-sm text-white hover:text-slate-200 transition">
+                  <span className="h-9 w-9 rounded-full bg-[#343538] flex items-center justify-center">
+                    🏠
+                  </span>
+                  Aftab Nagar, Dhaka
+                </div>
 
-             <button
-                onClick={() => setIsOpen(true)}
-                className="px-6 py-2 mt-4 rounded-full bg-white text-black font-medium hover:bg-gray-800 transition relative"
-             >
-                    Contact Me
-             </button>
-            </div>
-
-            {/* NAVIGATION */}
-            <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-left">
-              <h3 className="text-sm text-white font-medium">Navigation</h3>
-              <div className="flex flex-col gap-2 mt-6">
-                {[
-                  { name: "About", link: "#about" },
-                  { name: "Projects", link: "#projects" },
-                  { name: "Experience", link: "#experience" },
-                  { name: "Education", link: "#education" },
-                  { name: "Publications", link: "#publications" },
-                  { name: "Training", link: "#training" },
-                  { name: "Gallery", link: "#gallery" },
-                ].map((item, i) => (
-                  <a key={i} href={item.link} className="text-sm text-white/60 hover:text-white transition-colors">
-                    {item.name}
-                  </a>
-                ))}
+                <div className="inline-flex items-center gap-3 text-sm text-white hover:text-slate-200 transition">
+                  <span className="h-9 w-9 rounded-full bg-[#343538] flex items-center justify-center">
+                    ✉️
+                  </span>
+                  sajidgmhs73@gmail.com
+                </div>
               </div>
             </div>
 
-            {/* SOCIAL LINKS */}
-            <div className="w-full md:w-[45%] lg:w-[15%] flex flex-col items-center md:items-start text-center md:text-left">
-              <h3 className="text-sm text-white font-medium">Social</h3>
-              <div className="flex flex-col gap-2 mt-6">
-                {mySocials?.map((s, i) => (
-                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">
-                    {s.name}
-                  </a>
+            {/* ===== NAVIGATION + SOCIAL ===== */}
+            <div>
+              <h4 className="text-white font-medium text-lg">
+                Navigation
+              </h4>
+
+              <ul className="mt-6 grid grid-cols-2 gap-y-3 text-sm">
+                {navigation.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.link}
+                      className="hover:text-white transition"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
+
+              {/* SOCIAL ICONS */}
+              <ul className="flex items-center gap-4 mt-10">
+                {socials.map((item) => (
+                  <li
+                    key={item.name}
+                    className={`
+                      h-10 w-10 rounded-full
+                      flex items-center justify-center
+                      transition hover:scale-110
+                      ${item.highlight ? "bg-[#25D366]" : "bg-[#343538]"}
+                    `}
+                  >
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={item.name}
+                    >
+                      <img
+                        src={item.icon}
+                        alt={item.name}
+                        className="w-5 h-5 invert"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          <div className="w-full h-px mt-16 mb-4 bg-gradient-to-r from-black via-white/25 to-black"></div>
+          {/* ================= DIVIDER ================= */}
+          <div className="border-t border-slate-600/50 mt-14 pt-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/60">
-              © {new Date().getFullYear()} Copyright Syed Shoabul Islam
-            </p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-xs text-white/60 hover:text-white transition-colors">
-                Terms & Conditions
-              </a>
-              <div className="w-px h-4 bg-white/20"></div>
-              <a href="#" className="text-xs text-white/60 hover:text-white transition-colors">
-                Privacy Policy
-              </a>
+              <p className="text-slate-400">
+                © {new Date().getFullYear()} Syed Shoabul Islam. All rights reserved.
+              </p>
             </div>
           </div>
         </div>

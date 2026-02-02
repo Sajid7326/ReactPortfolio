@@ -24,7 +24,7 @@ const trainings = [
     title: "Aspire Leaders Program 2025",
     issuer: "Aspire Institute",
     logo: "/logos/aspire.png",
-    certificate: "/certs/aspire.pdf",
+    certificate: "/projects/alp.png",
     details: [
       "Ethical leadership",
       "Strategic thinking",

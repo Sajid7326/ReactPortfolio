@@ -21,7 +21,7 @@ export const myProjects = [
   },
   {
     id: 2,
-    title: "Groundwater Potential Zones in Bhaluka Upazila",
+    title: "Identification of Groundwater Potential Zones in Bhaluka Upazila",
     description:
       "Used GIS & Remote Sensing techniques to identify suitable groundwater extraction zones.",
     subDescription: [
@@ -40,7 +40,7 @@ export const myProjects = [
   },
   {
     id: 3,
-    title: "Earthquake Risk Assessment in Bangladesh",
+    title: "Geospatial Multicriteria Analysis for Earthquake Risk Assessment in Bangladesh",
     description:
       "A multicriteria GIS analysis to identify high-risk earthquake zones across Bangladesh.",
     subDescription: [
@@ -59,14 +59,14 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "Ecological Assessment using Land Surface Temperature",
+    title: "Ecological Assessment based on Land Surface Temperature (LST) and Urban Heat Island (UHI)",
     description:
       "Studied ecological change and urban thermal stress in Gazipur City over 10 years (2013–2023).",
     subDescription: [
       "Processed Landsat 5 & 8 thermal data to calculate LST.",
       "Computed indices such as UTFVI and EEI for ecological evaluation.",
       "Analyzed Urban Heat Island effects due to rapid urbanization.",
-      "Project completed as part of URP 366 coursework.",
+      "Project completed as part of URP 364 coursework.",
     ],
     href: "https://drive.google.com/file/d/1CgUVoFXI8bfmrO_-vt09e0ywt8UeYD0M/view?usp=sharing",
     logo: "",

@@ -1,97 +1,46 @@
 import { motion } from "motion/react";
 
-const Project = ({
-  title,
-  description,
-  tags,
-  image,
-  link,
-  setPreview,
-}) => {
+const Project = ({ project, onOpen, setPreview }) => {
   return (
     <motion.article
-      onMouseEnter={() => setPreview(image)}
-      onMouseLeave={() => setPreview(null)}
-      whileHover={{ y: -4 }}
-      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+      onClick={() => onOpen(project)}
+      onMouseEnter={() => setPreview?.(project.image)}
+      onMouseLeave={() => setPreview?.(null)}
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
       className="
-        relative
-        mb-10
-        rounded-2xl
-        border
-        bg-white
-        border-neutral-200
-        shadow-sm
-        hover:shadow-xl
+        cursor-pointer
+        relative rounded-2xl border
+        bg-white border-slate-200
+        p-6
+        shadow-sm hover:shadow-xl
         transition-all
 
         dark:bg-neutral-900
         dark:border-white/10
       "
     >
-      <div className="p-6 space-y-4">
-        {/* ===== TITLE ===== */}
-        <h3
-          className="
-            text-xl font-semibold
-            text-slate-900
-            dark:text-white
-          "
-        >
-          {title}
-        </h3>
+      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+        {project.title}
+      </h3>
 
-        {/* ===== DESCRIPTION ===== */}
-        <p
-          className="
-            text-sm leading-relaxed
-            text-slate-700
-            dark:text-white/70
-          "
-        >
-          {description}
-        </p>
+      <p className="mt-3 text-sm text-slate-700 dark:text-white/70">
+        {project.description}
+      </p>
 
-        {/* ===== TAGS ===== */}
-        <div className="flex flex-wrap gap-3 pt-2">
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              className="
-                text-xs font-medium
-                px-3 py-1 rounded-full
-
-                bg-neutral-100
-                text-slate-700
-
-                dark:bg-white/10
-                dark:text-white/70
-              "
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* ===== LINK ===== */}
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
+      <div className="flex flex-wrap gap-2 mt-4">
+        {project.tags?.map((tag) => (
+          <span
+            key={tag.id}
             className="
-              inline-flex items-center gap-2
-              pt-3 text-sm font-medium
-
-              text-slate-900
-              hover:underline
-
-              dark:text-white
+              text-xs px-3 py-1 rounded-full
+              bg-slate-100 text-slate-700
+              dark:bg-white/10 dark:text-white/70
             "
           >
-            Read More →
-          </a>
-        )}
+            {tag.name}
+          </span>
+        ))}
       </div>
     </motion.article>
   );

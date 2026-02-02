@@ -1,100 +1,68 @@
-import { motion } from "motion/react";
+import { useState } from "react";
+import Project from "../components/Project";
+import ProjectModal from "../components/ProjectModal";
+import { myProjects } from "../constants";
+import { motion, useMotionValue, useSpring } from "motion/react";
 
-const Project = ({
-  title,
-  description,
-  tags,
-  image,
-  link,
-  setPreview,
-}) => {
+const Projects = () => {
+  const [activeProject, setActiveProject] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { damping: 20, stiffness: 120 });
+  const springY = useSpring(y, { damping: 20, stiffness: 120 });
+
+  const handleMouseMove = (e) => {
+    x.set(e.clientX + 20);
+    y.set(e.clientY + 20);
+  };
+
   return (
-    <motion.article
-      onMouseEnter={() => setPreview(image)}
-      onMouseLeave={() => setPreview(null)}
-      whileHover={{ y: -4 }}
-      transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      className="
-        relative
-        mb-10
-        rounded-2xl
-        border
-        bg-white
-        border-neutral-200
-        shadow-sm
-        hover:shadow-xl
-        transition-all
-
-        dark:bg-neutral-900
-        dark:border-white/10
-      "
+    <section
+      onMouseMove={handleMouseMove}
+      className="relative max-w-6xl mx-auto px-6 pt-28 pb-20"
     >
-      <div className="p-6 space-y-4">
-        {/* ===== TITLE ===== */}
-        <h3
-          className="
-            text-xl font-semibold
-            text-slate-900
-            dark:text-white
-          "
-        >
-          {title}
-        </h3>
+      <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white">
+        My Projects
+      </h2>
 
-        {/* ===== DESCRIPTION ===== */}
-        <p
-          className="
-            text-sm leading-relaxed
-            text-slate-700
-            dark:text-white/70
-          "
-        >
-          {description}
-        </p>
-
-        {/* ===== TAGS ===== */}
-        <div className="flex flex-wrap gap-3 pt-2">
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              className="
-                text-xs font-medium
-                px-3 py-1 rounded-full
-
-                bg-neutral-100
-                text-slate-700
-
-                dark:bg-white/10
-                dark:text-white/70
-              "
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* ===== LINK ===== */}
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="
-              inline-flex items-center gap-2
-              pt-3 text-sm font-medium
-
-              text-slate-900
-              hover:underline
-
-              dark:text-white
-            "
-          >
-            Read More →
-          </a>
-        )}
+      <div className="mt-12 space-y-10">
+        {myProjects.map((project) => (
+          <Project
+            key={project.id}
+            project={project}
+            onOpen={setActiveProject}
+            setPreview={setPreview}
+          />
+        ))}
       </div>
-    </motion.article>
+
+      {/* Desktop Preview */}
+      {preview && (
+        <motion.img
+          src={preview}
+          alt="Preview"
+          className="
+            hidden lg:block
+            fixed z-50
+            h-44 w-80
+            object-cover
+            rounded-xl
+            shadow-2xl
+            pointer-events-none
+          "
+          style={{ x: springX, y: springY }}
+        />
+      )}
+
+      {/* Modal */}
+      <ProjectModal
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
+    </section>
   );
 };
 
-export default Project;
+export default Projects;

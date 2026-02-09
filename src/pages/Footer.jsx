@@ -42,9 +42,11 @@ export default function Footer() {
     <>
       <footer
         className="
-          relative z-50 isolate
-          bg-[#27282b]
+          relative isolate z-50
+          bg-black
+          dark:bg-[#EAEFEF]
           text-slate-300
+          dark:text-slate-800
           py-14 px-6
         "
       >
@@ -53,27 +55,27 @@ export default function Footer() {
           {/* ================= TOP SECTION ================= */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
-            {/* ===== ABOUT / CONTACT ===== */}
+            {/* ===== ABOUT ===== */}
             <div>
-              <h4 className="text-white font-medium text-lg">
+              <h4 className="text-white dark:text-black text-bold font-medium text-lg">
                 Syed Shoabul Islam
               </h4>
 
-              <p className="text-sm mt-4 leading-relaxed max-w-md text-slate-400">
+              <p className="text-sm mt-4 leading-relaxed max-w-md text-slate-400 dark:text-slate-700">
                 GIS Analyst | Urban Planner
               </p>
 
-              <div className="mt-10 space-y-4 space-x-10">
+              <div className="mt-10 space-y-4">
 
-                <div className="inline-flex items-center gap-3 text-sm text-white hover:text-slate-200 transition">
-                  <span className="h-9 w-9 rounded-full bg-[#343538] flex items-center justify-center">
+                <div className="inline-flex items-center gap-3 text-sm text-slate-200 dark:text-slate-800">
+                  <span className="h-9 w-9  rounded-full bg-neutral-800 dark:bg-black/10 flex items-center justify-center">
                     🏠
                   </span>
                   Aftab Nagar, Dhaka
                 </div>
 
-                <div className="inline-flex items-center gap-3 text-sm text-white hover:text-slate-200 transition">
-                  <span className="h-9 w-9 rounded-full bg-[#343538] flex items-center justify-center">
+                <div className="inline-flex items-center gap-3 px-8 text-sm text-slate-200 dark:text-slate-800">
+                  <span className="h-9 w-9 rounded-full bg-neutral-800 dark:bg-black/10 flex items-center justify-center">
                     ✉️
                   </span>
                   sajidgmhs73@gmail.com
@@ -83,7 +85,7 @@ export default function Footer() {
 
             {/* ===== NAVIGATION + SOCIAL ===== */}
             <div>
-              <h4 className="text-white font-medium text-lg">
+              <h4 className="text-white dark:text-black font-medium text-lg">
                 Navigation
               </h4>
 
@@ -92,7 +94,13 @@ export default function Footer() {
                   <li key={item.name}>
                     <a
                       href={item.link}
-                      className="hover:text-white transition"
+                      className="
+                        text-slate-400
+                        hover:text-white
+                        dark:text-slate-700
+                        dark:hover:text-black
+                        transition
+                      "
                     >
                       {item.name}
                     </a>
@@ -109,7 +117,11 @@ export default function Footer() {
                       h-10 w-10 rounded-full
                       flex items-center justify-center
                       transition hover:scale-110
-                      ${item.highlight ? "bg-[#25D366]" : "bg-[#343538]"}
+                      ${
+                        item.highlight
+                          ? "bg-[#25D366]"
+                          : "bg-neutral-800 dark:bg-black/10"
+                      }
                     `}
                   >
                     <a
@@ -121,7 +133,7 @@ export default function Footer() {
                       <img
                         src={item.icon}
                         alt={item.name}
-                        className="w-5 h-5 invert"
+                        className="w-5 h-5 dark:invert-0 invert"
                       />
                     </a>
                   </li>
@@ -131,13 +143,10 @@ export default function Footer() {
           </div>
 
           {/* ================= DIVIDER ================= */}
-          <div className="border-t border-slate-600/50 mt-14 pt-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-
-              <p className="text-slate-400">
-                © {new Date().getFullYear()} Syed Shoabul Islam. All rights reserved.
-              </p>
-            </div>
+          <div className="border-t border-neutral-800 dark:border-black/20 mt-14 pt-6">
+            <p className="text-sm text-slate-500 dark:text-slate-700 text-center md:text-left">
+              © {new Date().getFullYear()} Syed Shoabul Islam. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

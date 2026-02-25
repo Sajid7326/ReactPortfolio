@@ -219,3 +219,13 @@ body {
 .rainbow-btn:active {
   transform: scale(0.96);
 }
+
+/* Hide navbar when modal is open */
+.modal-open nav {
+  display: none !important;
+}
+
+/* Lock background scroll */
+.modal-open {
+  overflow: hidden;
+}

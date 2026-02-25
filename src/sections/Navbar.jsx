@@ -60,7 +60,7 @@ export default function PortfolioNavbar() {
                 key={i}
                 href={item.link}
                 onClick={() => setOpen(false)}
-                className="text-white py-2 text-lg"
+                className="text-white py-5 text-lg"
               >
                 {item.name}
               </a>

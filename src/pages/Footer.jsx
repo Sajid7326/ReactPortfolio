@@ -1,28 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactModal from "../components/ContactModal";
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hiddenByModal, setHiddenByModal] = useState(false);
+
+  // Watch for modal-open class on body
+  useEffect(() => {
+    const checkModal = () => {
+      setHiddenByModal(document.body.classList.contains("modal-open"));
+    };
+
+    checkModal();
+
+    const observer = new MutationObserver(checkModal);
+    observer.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+
+    return () => observer.disconnect();
+  }, []);
 
   const socials = [
     {
       name: "Facebook",
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/share/1MBPSp3xVm/",
       icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/facebook.svg",
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/syedshoabulislam",
       icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/linkedin.svg",
     },
     {
       name: "Instagram",
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/shoabul.islam?igsh=MTlmemNnZ3V1ejN6Ng==",
       icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/instagram.svg",
     },
     {
       name: "WhatsApp",
-      href: "https://wa.me/880XXXXXXXXXX",
+      href: "https://wa.me/8801312306839",
       icon: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg",
       highlight: true,
     },
@@ -41,14 +56,14 @@ export default function Footer() {
   return (
     <>
       <footer
-        className="
+        className={`
           relative isolate z-50
-          bg-black
-          dark:bg-[#EAEFEF]
-          text-slate-300
-          dark:text-slate-800
+          bg-black dark:bg-[#EAEFEF]
+          text-slate-300 dark:text-slate-800
           py-14 px-6
-        "
+          transition-all duration-300 ease-out
+          ${hiddenByModal ? "opacity-0 pointer-events-none translate-y-2" : "opacity-100 translate-y-0"}
+        `}
       >
         <div className="max-w-6xl mx-auto">
 
@@ -68,7 +83,7 @@ export default function Footer() {
               <div className="mt-10 space-y-4">
 
                 <div className="inline-flex items-center gap-3 text-sm text-slate-200 dark:text-slate-800">
-                  <span className="h-9 w-9  rounded-full bg-neutral-800 dark:bg-black/10 flex items-center justify-center">
+                  <span className="h-9 w-9 rounded-full bg-neutral-800 dark:bg-black/10 flex items-center justify-center">
                     🏠
                   </span>
                   Aftab Nagar, Dhaka
@@ -95,10 +110,8 @@ export default function Footer() {
                     <a
                       href={item.link}
                       className="
-                        text-slate-400
-                        hover:text-white
-                        dark:text-slate-700
-                        dark:hover:text-black
+                        text-slate-400 hover:text-white
+                        dark:text-slate-700 dark:hover:text-black
                         transition
                       "
                     >

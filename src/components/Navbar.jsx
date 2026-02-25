@@ -35,9 +35,10 @@ export default function Navbar() {
       {/* ================= MOBILE NAV ================= */}
       <div
         className="
-          fixed top-3 left-1/2 -translate-x-1/2
-          z-[999]
+          fixed top-5 left-1/2 -translate-x-1/2
+          z-[99]
           flex md:hidden items-center gap-2
+          max-w-2xl px-15
         "
       >
         <LiquidIconNav

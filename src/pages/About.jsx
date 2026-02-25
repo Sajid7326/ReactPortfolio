@@ -6,6 +6,7 @@ import AboutProfileModal from "../components/AboutProfileModal";
 import { LampContainer } from "../components/lamp";
 import { EncryptedText } from "../components/ui/encrypted-text";
 import ParallaxParticles from "../components/ParallaxParticles";
+import Blog from "../components/Blog";
 
 const About = () => {
   const grid2Container = useRef(null);
@@ -205,6 +206,8 @@ const expertise = [
 
         <MapModal open={openMap} onClose={() => setOpenMap(false)} lat={lat} lon={lon} />
         <AboutProfileModal open={openAbout} onClose={() => setOpenAbout(false)} />
+                {/* ================= BLOG SECTION ================= */}
+        <Blog />
       </section>
     </>
   );

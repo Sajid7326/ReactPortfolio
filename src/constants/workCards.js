@@ -24,6 +24,7 @@ export const professionalWork = [
       "Prepared policy drafts aligned with SDGs.",
     ],
     link: "https://udd.gov.bd/",
+    pdf: "/docs/National_Urbanization_Policy_Draft.pdf",
   },
   {
     title: "Research Assistant",

@@ -64,6 +64,23 @@ export function HoverEffect({ items = [], className }) {
             </ul>
           )}
 
+          {item.pdf && (
+          <a
+         href={item.pdf}
+         target="_blank"
+         rel="noopener noreferrer"
+                     className="mt-4 w-full inline-flex items-center justify-center gap-2
+                                rounded-xl py-3 font-semibold text-black
+                                bg-gradient-to-r from-cyan-500 to-blue-600
+                                shadow-md transition-all duration-300
+                                hover:shadow-[0_0_20px_rgba(34,211,238,0.8)]
+                                hover:scale-[1.02]"
+                                      >
+                           <span className="text-lg">📄</span>
+                           <span>View Policy Draft (PDF)</span>
+            </a>
+              )}
+
           {/* ===== LINK (BOTTOM CENTER) ===== */}
           {item.link && (
             <a
@@ -80,6 +97,7 @@ export function HoverEffect({ items = [], className }) {
               Visit Organization →
             </a>
           )}
+          
         </motion.div>
       ))}
     </div>

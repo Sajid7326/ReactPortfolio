@@ -24,7 +24,7 @@ const Projects = () => {
       className="relative max-w-6xl mx-auto px-6 pt-28 pb-20"
     >
       <h2 className="text-3xl font-bold text-center text-slate-900 dark:text-white">
-        My Projects
+        Academic Posters
       </h2>
 
       <div className="mt-12 space-y-10">

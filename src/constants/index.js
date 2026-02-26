@@ -11,6 +11,8 @@ export const myProjects = [
       "Completed as part of URP 261 coursework at CUET.",
     ],
     href: "https://drive.google.com/file/d/1sBemg3GhD9ODqV-kvpeplbILIhj_MH5Q/view?usp=drive_link",
+    pdf: "https://drive.google.com/file/d/1sBemg3GhD9ODqV-kvpeplbILIhj_MH5Q/view?usp=drive_link",
+    type: "poster", // 🖼️ poster
     logo: "",
     image: "/assets/projects/covid.png",
     tags: [
@@ -31,6 +33,8 @@ export const myProjects = [
       "Project completed under URP 261 coursework.",
     ],
     href: "https://drive.google.com/file/d/1YxBxUNdvlUoLKfE_d7t5a9POtGX_jzjR/view?usp=sharing",
+    pdf: "https://drive.google.com/file/d/1YxBxUNdvlUoLKfE_d7t5a9POtGX_jzjR/view?usp=sharing",
+    type: "poster", // 🖼️ poster
     logo: "",
     image: "/assets/projects/gwpz.png",
     tags: [
@@ -40,7 +44,8 @@ export const myProjects = [
   },
   {
     id: 3,
-    title: "Geospatial Multicriteria Analysis for Earthquake Risk Assessment in Bangladesh",
+    title:
+      "Geospatial Multicriteria Analysis for Earthquake Risk Assessment in Bangladesh",
     description:
       "A multicriteria GIS analysis to identify high-risk earthquake zones across Bangladesh.",
     subDescription: [
@@ -50,6 +55,8 @@ export const myProjects = [
       "Completed as part of URP 366 coursework at CUET.",
     ],
     href: "https://drive.google.com/file/d/1vvepmPodKASdJ8pEU2Shwx89Z03h41zk/view?usp=sharing",
+    pdf: "https://drive.google.com/file/d/1vvepmPodKASdJ8pEU2Shwx89Z03h41zk/view?usp=sharing",
+    type: "poster", // 🖼️ poster
     logo: "",
     image: "/assets/projects/eq.png",
     tags: [
@@ -59,7 +66,8 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "Ecological Assessment based on Land Surface Temperature (LST) and Urban Heat Island (UHI)",
+    title:
+      "Ecological Assessment based on Land Surface Temperature (LST) and Urban Heat Island (UHI)",
     description:
       "Studied ecological change and urban thermal stress in Gazipur City over 10 years (2013–2023).",
     subDescription: [
@@ -69,6 +77,8 @@ export const myProjects = [
       "Project completed as part of URP 364 coursework.",
     ],
     href: "https://drive.google.com/file/d/1CgUVoFXI8bfmrO_-vt09e0ywt8UeYD0M/view?usp=sharing",
+    pdf: "https://drive.google.com/file/d/1CgUVoFXI8bfmrO_-vt09e0ywt8UeYD0M/view?usp=sharing",
+    type: "poster", // 🖼️ poster
     logo: "",
     image: "/assets/projects/eei.png",
     tags: [

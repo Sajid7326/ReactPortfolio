@@ -1,3 +1,5 @@
+import ExpandableEducation from "../components/ExpandableEducation";
+
 export default function Education() {
   return (
     <section className="pt-28 pb-20 min-h-screen bg-white dark:bg-black transition-colors">
